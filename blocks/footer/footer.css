@@ -85,7 +85,7 @@ footer .footer-shortcuts li:last-child {
   border-right: none;
 }
 
-footer .footer-shortcuts a {
+footer .footer .footer-shortcuts a {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
