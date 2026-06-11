@@ -1,20 +1,104 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
-}
-
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  background-color: rgb(58 63 58);
+  color: rgb(146 146 146);
+  font-family: arial, sans-serif;
+  font-size: 12px;
 }
 
 footer .footer p {
   margin: 0;
+  line-height: 1.6;
+}
+
+footer .footer h2,
+footer .footer h3 {
+  color: rgb(199 199 199);
+  font-size: 18px;
+  font-weight: 400;
+  font-family: arial, sans-serif;
+  margin: 0 0 12px;
+}
+
+footer .footer h3 {
+  font-size: 14px;
+}
+
+footer .footer a:any-link {
+  color: #fff;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  text-decoration: underline;
+}
+
+footer .footer img {
+  width: 175px;
+  height: 45px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+footer .footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer .footer li {
+  padding: 4px 0;
+}
+
+/* top bar - quick links (first div inside wrapper) */
+footer .footer > div > div:first-child {
+  background-color: rgb(0 0 0 / 30%);
+  padding: 0;
+  margin: 0 -24px;
+}
+
+footer .footer > div > div:first-child ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  flex-wrap: wrap;
+}
+
+footer .footer > div > div:first-child li {
+  padding: 0 16px;
+  border-right: 1px solid rgb(146 146 146);
+}
+
+footer .footer > div > div:first-child li:last-child {
+  border-right: none;
+}
+
+footer .footer > div > div:first-child a {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* main body - columns (second div inside wrapper) */
+footer .footer > div > div:nth-child(2) {
+  margin: auto;
+  max-width: 1200px;
+  padding: 40px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
 }
 
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer .footer > div > div:nth-child(2) {
+    grid-template-columns: 250px 1fr 1fr 1fr;
   }
+}
+
+/* copyright (last div inside wrapper) */
+footer .footer > div > div:last-child {
+  border-top: 1px solid rgb(80 85 80);
+  padding: 16px 0;
+  color: rgb(146 146 146);
+  font-size: 11px;
 }

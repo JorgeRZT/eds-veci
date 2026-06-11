@@ -1,4 +1,4 @@
-/* header and nav layout */
+/* header and nav layout - two-level structure matching original */
 header .nav-wrapper {
   background-color: #fff;
   width: 100%;
@@ -15,7 +15,7 @@ header nav {
   align-items: center;
   gap: 0 16px;
   margin: auto;
-  max-width: 1200px;
+  max-width: 1400px;
   height: var(--nav-height);
   padding: 0 16px;
   font-family: arial, sans-serif;
@@ -37,17 +37,17 @@ header nav[aria-expanded='true'] {
     position: relative;
   }
 
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0 24px;
-    max-width: 1200px;
-    padding: 0 24px;
-    height: 80px;
-  }
-
+  header nav,
   header nav[aria-expanded='true'] {
+    display: grid;
+    grid-template:
+      'brand tools' 80px
+      'sections sections' 48px / 1fr auto;
+    align-items: center;
+    gap: 0;
+    max-width: 1400px;
+    padding: 0 24px;
+    height: 128px;
     min-height: 0;
     overflow: visible;
   }
@@ -59,9 +59,8 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: #555;
+  color: #000;
   text-decoration: none;
-  transition: color 0.2s;
 }
 
 header nav a:hover {
@@ -150,7 +149,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   }
 }
 
-/* brand */
+/* brand - top row left */
 header .nav-brand {
   grid-area: brand;
   flex-basis: 190px;
@@ -164,7 +163,7 @@ header nav .nav-brand img {
   object-fit: contain;
 }
 
-/* sections - main nav links */
+/* sections - bottom row nav links (centered) */
 header nav .nav-sections {
   grid-area: sections;
   flex: 1 1 auto;
@@ -198,13 +197,43 @@ header nav .nav-sections ul > li > ul > li {
 
 @media (width >= 900px) {
   header nav .nav-sections {
-    display: block;
+    display: flex;
     visibility: visible;
     white-space: nowrap;
+    border-top: 1px solid #e2e2e2;
+    align-self: stretch;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    padding-top: 8px;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
-    align-self: unset;
+    align-self: stretch;
+  }
+
+  header nav .nav-sections ul {
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    justify-content: center;
+  }
+
+  header nav .nav-sections a {
+    color: #000;
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  header nav .nav-sections a:hover {
+    color: var(--link-color);
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li {
+    flex: 0 1 auto;
+    position: relative;
   }
 
   header nav .nav-sections .nav-drop {
@@ -233,30 +262,6 @@ header nav .nav-sections ul > li > ul > li {
     transform: rotate(315deg);
   }
 
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 24px;
-    margin: 0;
-    border-top: 1px solid #e2e2e2;
-    padding-top: 12px;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li {
-    flex: 0 1 auto;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > a {
-    color: #333;
-    font-weight: 500;
-    font-size: 14px;
-    padding: 4px 0;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > a:hover {
-    color: var(--link-color);
-  }
-
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
     position: relative;
@@ -280,22 +285,35 @@ header nav .nav-sections ul > li > ul > li {
   }
 }
 
-/* tools - utility links (phone, help) */
+/* tools - top row right (phone, agencies, help, login) */
 header nav .nav-tools {
   grid-area: tools;
   display: flex;
   align-items: center;
-  gap: 16px;
-  font-size: 12px;
+  gap: 40px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+header nav .nav-tools p {
+  display: inline;
 }
 
 header nav .nav-tools a:any-link {
-  color: var(--link-color);
-  font-size: 12px;
+  color: #000;
+  font-size: 13px;
   font-family: arial, sans-serif;
+  text-decoration: none;
 }
 
 header nav .nav-tools a:hover {
-  color: var(--link-hover-color);
+  color: var(--link-color);
   text-decoration: underline;
+}
+
+header nav .nav-tools .icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 4px;
 }
