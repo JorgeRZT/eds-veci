@@ -1,0 +1,18 @@
+:root {
+  --heading-font-family: "Asap", sans-serif;
+  --body-font-family: "Asap", arial, sans-serif;
+  --background-color: #efefef;
+  --text-color: #333;
+  --link-color: #67b500;
+  --link-hover-color: #5da132;
+  --light-color: #f7f7f7;
+  --dark-color: #2d2d2d;
+  --section-padding: 40px;
+  --nav-height: 80px;
+  --heading-font-size-xxl: 34px;
+  --heading-font-size-xl: 24px;
+  --heading-font-size-l: 20px;
+  --heading-font-size-m: 16px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
+}

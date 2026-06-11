@@ -1,0 +1,102 @@
+/* Block: cards-travel -- Travel destination cards with image + text overlay */
+
+.cards-travel > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cards-travel > ul > li {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Gradient overlay from top */
+.cards-travel > ul > li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 75%;
+  background: linear-gradient(rgb(16 47 82), rgb(0 0 0 / 0%) 50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cards-travel .cards-travel-card-image {
+  line-height: 0;
+}
+
+.cards-travel > ul > li img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text label overlay */
+.cards-travel .cards-travel-card-body {
+  position: absolute;
+  top: 34px;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  z-index: 2;
+  margin: 0;
+}
+
+.cards-travel .cards-travel-card-body p {
+  margin: 0;
+  font-size: 20px;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.cards-travel .cards-travel-card-body a:any-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.cards-travel .cards-travel-card-body a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* Reset EDS button styling on links inside this block */
+.cards-travel .cards-travel-card-body p.button-container {
+  margin: 0;
+}
+
+.cards-travel .cards-travel-card-body a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 26px;
+  white-space: normal;
+  display: inline;
+}
+
+@media (width >= 900px) {
+  .cards-travel > ul {
+    flex-direction: row;
+  }
+
+  .cards-travel > ul > li {
+    flex: 1;
+  }
+}

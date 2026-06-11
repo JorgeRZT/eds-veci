@@ -1,9 +1,9 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: #fff;
   width: 100%;
-  z-index: 2;
-  position: fixed;
+  z-index: 300;
+  position: relative;
 }
 
 header nav {
@@ -13,12 +13,14 @@ header nav {
     'hamburger brand tools' var(--nav-height)
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
-  gap: 0 24px;
+  gap: 0 16px;
   margin: auto;
-  max-width: 1248px;
+  max-width: 1200px;
   height: var(--nav-height);
-  padding: 0 24px;
-  font-family: var(--body-font-family);
+  padding: 0 16px;
+  font-family: arial, sans-serif;
+  font-size: 13px;
+  color: #333;
 }
 
 header nav[aria-expanded='true'] {
@@ -38,9 +40,11 @@ header nav[aria-expanded='true'] {
   header nav {
     display: flex;
     justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
-    padding: 0 32px;
+    align-items: center;
+    gap: 0 24px;
+    max-width: 1200px;
+    padding: 0 24px;
+    height: 80px;
   }
 
   header nav[aria-expanded='true'] {
@@ -55,7 +59,14 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: currentcolor;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+header nav a:hover {
+  color: var(--link-color);
+  text-decoration: none;
 }
 
 /* hamburger */
@@ -72,8 +83,8 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
+  background-color: transparent;
+  color: #333;
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
@@ -142,18 +153,18 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 /* brand */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
+  flex-basis: 190px;
+  flex-shrink: 0;
   line-height: 1;
 }
 
 header nav .nav-brand img {
-  width: 128px;
-  height: auto;
+  width: 190px;
+  height: 40px;
+  object-fit: contain;
 }
 
-/* sections */
+/* sections - main nav links */
 header nav .nav-sections {
   grid-area: sections;
   flex: 1 1 auto;
@@ -170,7 +181,7 @@ header nav[aria-expanded='true'] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
+  font-size: 14px;
 }
 
 header nav .nav-sections ul > li {
@@ -209,8 +220,8 @@ header nav .nav-sections ul > li > ul > li {
     top: 0.5em;
     right: 2px;
     transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border: 2px solid currentcolor;
     border-radius: 0 1px 0 0;
     border-width: 2px 2px 0 0;
@@ -226,11 +237,24 @@ header nav .nav-sections ul > li > ul > li {
     display: flex;
     gap: 24px;
     margin: 0;
+    border-top: 1px solid #e2e2e2;
+    padding-top: 12px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > a {
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 4px 0;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > a:hover {
+    color: var(--link-color);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -241,24 +265,14 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
     display: block;
     position: absolute;
-    left: -24px;
-    width: 200px;
+    left: -16px;
+    width: 220px;
     top: 150%;
     padding: 16px;
-    background-color: var(--light-color);
+    background-color: #fff;
     white-space: initial;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
+    border-radius: 4px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
@@ -266,7 +280,22 @@ header nav .nav-sections ul > li > ul > li {
   }
 }
 
-/* tools */
+/* tools - utility links (phone, help) */
 header nav .nav-tools {
   grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+}
+
+header nav .nav-tools a:any-link {
+  color: var(--link-color);
+  font-size: 12px;
+  font-family: arial, sans-serif;
+}
+
+header nav .nav-tools a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
 }

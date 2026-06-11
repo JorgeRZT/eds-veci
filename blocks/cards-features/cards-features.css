@@ -1,0 +1,72 @@
+/* Block: cards-features
+   Source: section.hv-advantages on viajeselcorteingles.es
+   4 feature/USP items in horizontal row, centered text, light green background */
+
+/* Section-level: full-width green background */
+.cards-features-container {
+  background-color: rgb(202 224 210) !important;
+  padding: 60px 0 !important;
+  margin: 0 !important;
+}
+
+/* Override section wrapper max-width for full bleed bg */
+.cards-features-wrapper {
+  max-width: 1120px;
+}
+
+.cards-features {
+  color: rgb(58 63 58);
+  padding: 0 20px;
+}
+
+.cards-features > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-features > ul > li {
+  text-align: center;
+  max-width: 280px;
+  border: none;
+  background-color: transparent;
+}
+
+.cards-features .cards-features-card-body {
+  margin: 0;
+  padding: 0;
+}
+
+.cards-features h3 {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--heading-font-family);
+  line-height: 20px;
+  color: rgb(58 63 58);
+  margin: 0 0 12px;
+}
+
+.cards-features p {
+  font-size: 12px;
+  font-family: var(--body-font-family);
+  line-height: 16px;
+  color: rgb(58 63 58);
+  margin: 0;
+}
+
+@media (width >= 900px) {
+  .cards-features > ul {
+    flex-direction: row;
+    gap: 72px;
+  }
+
+  .cards-features > ul > li {
+    flex: 1;
+    max-width: none;
+  }
+}

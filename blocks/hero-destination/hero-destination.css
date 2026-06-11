@@ -1,0 +1,109 @@
+/* Block: hero-destination */
+
+/* Full-width wrapper override */
+main .section > .hero-destination-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.hero-destination {
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+/* Gradient overlay on image */
+.hero-destination::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 50%) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Row 1: image container - positioned as background */
+.hero-destination > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Row 2: text content overlay */
+.hero-destination > div:last-child {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hide cell structure - flatten row 2 */
+.hero-destination > div:last-child > div {
+  display: contents;
+}
+
+.hero-destination > div:first-child > div {
+  height: 100%;
+}
+
+.hero-destination > div:first-child picture {
+  display: block;
+  height: 100%;
+}
+
+.hero-destination > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Heading */
+.hero-destination h1 {
+  font-size: 34px;
+  font-weight: 400;
+  font-family: var(--heading-font-family);
+  line-height: 42px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+/* Description paragraph / text */
+.hero-destination p,
+.hero-destination > div:last-child > div:last-child {
+  font-size: 14px;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  line-height: 20px;
+  color: #fff;
+  max-width: 700px;
+  margin: 0;
+}
+
+/* No-image variant */
+.hero-destination.no-image::after {
+  display: none;
+}
+
+.hero-destination.no-image h1,
+.hero-destination.no-image p,
+.hero-destination.no-image > div:last-child > div:last-child {
+  color: var(--text-color);
+}
+
+@media (width >= 900px) {
+  .hero-destination {
+    min-height: 400px;
+  }
+}

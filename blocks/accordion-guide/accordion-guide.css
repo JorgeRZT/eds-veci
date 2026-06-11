@@ -1,0 +1,126 @@
+/* Block: accordion-guide */
+
+/* Each .accordion-guide block contains a single <details> item.
+   Multiple consecutive blocks render as a visual list of accordion items. */
+
+.accordion-guide {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.accordion-guide details {
+  background-color: #fff;
+  border: 1px solid #c7c7c7;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.accordion-guide details summary {
+  position: relative;
+  padding: 20px;
+  padding-right: 50px;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 0.2s;
+}
+
+.accordion-guide details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-guide details summary::marker {
+  display: none;
+  content: "";
+}
+
+.accordion-guide details summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgb(58 63 58);
+  border-bottom: 2px solid rgb(58 63 58);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.3s;
+}
+
+.accordion-guide details[open] summary::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+.accordion-guide details summary:hover {
+  background-color: var(--light-color);
+}
+
+.accordion-guide details summary h2 {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--heading-font-family);
+  line-height: 22px;
+  color: rgb(58 63 58);
+  margin: 0;
+  padding: 0;
+  letter-spacing: normal;
+}
+
+.accordion-guide details .accordion-guide-item-body {
+  padding: 0 20px 20px;
+}
+
+.accordion-guide details .accordion-guide-item-body p {
+  font-size: 14px;
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+  color: rgb(58 63 58);
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.accordion-guide details .accordion-guide-item-body img {
+  border-radius: 4px;
+  max-width: 100%;
+  height: auto;
+}
+
+.accordion-guide details .accordion-guide-item-body a:any-link {
+  color: var(--link-color);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.accordion-guide details .accordion-guide-item-body a:hover {
+  color: var(--link-hover-color);
+}
+
+@media (width >= 900px) {
+  .accordion-guide details .accordion-guide-item-body {
+    display: grid;
+    grid-template-columns: 301px 1fr;
+    grid-template-rows: auto;
+    gap: 8px 20px;
+  }
+
+  .accordion-guide details .accordion-guide-item-body p:has(picture) {
+    grid-column: 1;
+    margin: 0;
+  }
+
+  .accordion-guide details .accordion-guide-item-body p:not(:has(picture)) {
+    grid-column: 2;
+    grid-row: span 1;
+  }
+
+  /* Force text content to start at row 1 */
+  .accordion-guide details .accordion-guide-item-body p:not(:has(picture)):nth-child(3) {
+    grid-row-start: 1;
+  }
+
+  .accordion-guide details .accordion-guide-item-body p picture img {
+    width: 301px;
+    height: 184px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+}

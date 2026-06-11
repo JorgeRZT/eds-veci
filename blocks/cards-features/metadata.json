@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-features",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-06-11T06:32:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.viajeselcorteingles.es/grandes-viajes/destinos/egipto",
+    "originPage": "travel destination landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "trust-features",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + heading + description",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "USP/trust feature sections",
+      "service benefits listings",
+      "value proposition grids",
+      "icon-based feature highlights"
+    ],
+    "notSuitableFor": [
+      "photo-heavy galleries",
+      "product cards with prices",
+      "team member profiles"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/grandes-viajes/destinos/egipto"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-11T06:32:00.000Z"
+  }
+}

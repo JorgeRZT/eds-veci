@@ -1,0 +1,28 @@
+{
+  "status": "success",
+  "url": "https://www.viajeselcorteingles.es/grandes-viajes/destinos/egipto",
+  "path": "grandes-viajes/destinos/egipto",
+  "timestamp": "2026-06-11T06:55:49.361Z",
+  "title": "Egipto - Viajes El Corte Inglés",
+  "template": "destination-page",
+  "blocks": [
+    "hero-destination",
+    "cards-travel",
+    "cards-travel",
+    "cards-features",
+    "carousel-gallery",
+    "accordion-guide",
+    "accordion-guide",
+    "accordion-guide",
+    "accordion-guide",
+    "accordion-guide",
+    "accordion-guide",
+    "accordion-guide",
+    "accordion-guide",
+    "accordion-guide",
+    "accordion-guide",
+    "accordion-guide",
+    "accordion-guide",
+    "accordion-guide"
+  ]
+}

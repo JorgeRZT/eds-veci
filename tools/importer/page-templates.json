@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "destination-page",
+      "urls": [
+        "https://www.viajeselcorteingles.es/grandes-viajes/destinos/egipto"
+      ],
+      "description": "Travel destination page showcasing a specific country with hero imagery, trip packages, highlights, and booking options",
+      "blocks": [
+        {
+          "name": "hero-destination",
+          "instances": [".header-block"]
+        },
+        {
+          "name": "cards-travel",
+          "instances": ["section.mod_section_access", "section.mod-links.mod-links-destination-x2"]
+        },
+        {
+          "name": "cards-features",
+          "instances": ["section.hv-advantages"]
+        },
+        {
+          "name": "carousel-gallery",
+          "instances": [".thumbnail-module.mgb30"]
+        },
+        {
+          "name": "accordion-guide",
+          "instances": [".module.mod-info.collapsible"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-hero",
+          "name": "Hero",
+          "selector": ".header-block",
+          "style": null,
+          "blocks": ["hero-destination"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-cta",
+          "name": "CTA Banner",
+          "selector": "#modAdviseme",
+          "style": "dark",
+          "blocks": [],
+          "defaultContent": ["#modAdviseme h2", "#modAdviseme p", "#modAdviseme .content-button a"]
+        },
+        {
+          "id": "section-travel-options",
+          "name": "Travel Options",
+          "selector": "section.mod_section_access",
+          "style": null,
+          "blocks": ["cards-travel"],
+          "defaultContent": ["section.mod_section_access header h2", "section.mod_section_access header p"]
+        },
+        {
+          "id": "section-usp",
+          "name": "USP/Trust Features",
+          "selector": "section.hv-advantages",
+          "style": "grey",
+          "blocks": ["cards-features"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-gallery",
+          "name": "Image Gallery",
+          "selector": ".thumbnail-module.mgb30",
+          "style": null,
+          "blocks": ["carousel-gallery"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-what-to-see",
+          "name": "What to See",
+          "selector": [".module.mod-info:not(.collapsible):has(h2:first-child)"],
+          "style": null,
+          "blocks": ["accordion-guide"],
+          "defaultContent": [".module.mod-info:not(.collapsible) > h2"]
+        },
+        {
+          "id": "section-where-to-stay",
+          "name": "Where to Stay",
+          "selector": ".module.mod-info:has(> h2:contains('alojarse'))",
+          "style": null,
+          "blocks": ["accordion-guide"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-useful-info",
+          "name": "Useful Information",
+          "selector": ".module.mod-info:has(> h2:contains('til'))",
+          "style": null,
+          "blocks": ["accordion-guide"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-other-destinations",
+          "name": "Other Destinations",
+          "selector": "section.mod-links.mod-links-destination-x2",
+          "style": null,
+          "blocks": ["cards-travel"],
+          "defaultContent": ["section.mod-links h2"]
+        }
+      ]
+    }
+  ]
+}
