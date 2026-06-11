@@ -220,6 +220,7 @@ main .section.dark {
   color: #fff;
   margin: 0;
   padding: 40px 0;
+  text-align: center;
 }
 
 main .section.dark a:any-link {
@@ -227,9 +228,16 @@ main .section.dark a:any-link {
 }
 
 main .section.dark a.button.primary:any-link {
-  background-color: var(--link-color);
-  border-color: var(--link-color);
-  color: #fff;
+  background-color: rgb(112 219 150);
+  border-color: rgb(241 248 243);
+  color: rgb(22 25 22);
+}
+
+main .section.dark a.button.primary:hover,
+main .section.dark a.button.primary:focus-visible {
+  background-color: rgb(90 200 130);
+  border-color: rgb(241 248 243);
+  color: rgb(22 25 22);
 }
 
 main .section.grey,

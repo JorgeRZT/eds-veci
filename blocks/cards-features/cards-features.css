@@ -5,7 +5,7 @@
 /* Section-level: full-width green background */
 .cards-features-container {
   background-color: rgb(202 224 210) !important;
-  padding: 60px 0 !important;
+  padding: 60px 20px !important;
   margin: 0 !important;
 }
 
@@ -14,9 +14,18 @@
   max-width: 1120px;
 }
 
+/* Section title above the block */
+main .section.cards-features-container h2 {
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  color: rgb(58 63 58);
+  margin: 0 0 30px;
+}
+
 .cards-features {
   color: rgb(58 63 58);
-  padding: 0 20px;
 }
 
 .cards-features > ul {
@@ -44,11 +53,12 @@
 
 .cards-features h3 {
   font-size: 16px;
-  font-weight: 600;
-  font-family: var(--heading-font-family);
+  font-weight: 400;
+  font-family: var(--body-font-family);
   line-height: 20px;
   color: rgb(58 63 58);
   margin: 0 0 12px;
+  text-transform: none;
 }
 
 .cards-features p {

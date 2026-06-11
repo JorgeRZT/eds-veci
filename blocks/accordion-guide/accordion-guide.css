@@ -56,13 +56,14 @@
 
 .accordion-guide details summary h2 {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   font-family: var(--heading-font-family);
   line-height: 22px;
   color: rgb(58 63 58);
   margin: 0;
   padding: 0;
   letter-spacing: normal;
+  text-transform: none;
 }
 
 .accordion-guide details .accordion-guide-item-body {

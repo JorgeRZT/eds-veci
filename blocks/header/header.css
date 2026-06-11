@@ -50,6 +50,7 @@ header nav[aria-expanded='true'] {
     height: 128px;
     min-height: 0;
     overflow: visible;
+    border-bottom: 1px solid #e2e2e2;
   }
 }
 
@@ -200,12 +201,9 @@ header nav .nav-sections ul > li > ul > li {
     display: flex;
     visibility: visible;
     white-space: nowrap;
-    border-top: 1px solid #e2e2e2;
     align-self: stretch;
     align-items: center;
     justify-content: center;
-    margin-top: 8px;
-    padding-top: 8px;
   }
 
   header nav[aria-expanded='true'] .nav-sections {

@@ -1,1 +1,24 @@
 /* add global styles that can be loaded post LCP here */
+
+/* Section headings: match original weight and transform */
+main .section h2 {
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* Dark section subtitle */
+main .section.dark p {
+  color: rgb(199 199 199);
+  font-size: 14px;
+}
+
+/* Cards-travel section heading area */
+main .section .cards-travel-wrapper .default-content-wrapper h2 {
+  text-align: center;
+}
+
+main .section .cards-travel-wrapper .default-content-wrapper p {
+  text-align: center;
+  color: rgb(107 107 107);
+  font-size: 14px;
+}

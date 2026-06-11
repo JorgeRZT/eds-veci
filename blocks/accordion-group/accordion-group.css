@@ -1,0 +1,267 @@
+/* Block: accordion-group
+   Consolidates the "Qué ver en Egipto" style sections:
+   - left aside title
+   - right content: intro (title + media + text) + accordion items
+   - media with >1 image renders as a carousel */
+
+.accordion-group-container {
+  background-color: #fff;
+  border: 1px solid rgb(226 226 226);
+  padding: 30px;
+  margin: 40px auto !important;
+  max-width: 1200px;
+}
+
+.accordion-group-wrapper {
+  max-width: 1200px;
+}
+
+.accordion-group-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.accordion-group-aside h2 {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: rgb(58 63 58);
+  margin: 0 0 15px;
+}
+
+.accordion-group-content {
+  min-width: 0;
+}
+
+.accordion-group-intro h2 {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: rgb(58 63 58);
+  margin: 0 0 15px;
+}
+
+.accordion-group-intro p {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(58 63 58);
+  margin: 0 0 12px;
+}
+
+/* Single image: float left so text wraps */
+.accordion-group .accordion-group-image {
+  float: left;
+  margin: 0 15px 10px 0;
+}
+
+.accordion-group-image img,
+.accordion-group-image picture {
+  display: block;
+}
+
+.accordion-group-image img {
+  width: 301px;
+  height: 184px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Accordion items */
+.accordion-group-item {
+  background-color: #fff;
+  border: 1px solid #c7c7c7;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  clear: both;
+}
+
+.accordion-group-item summary {
+  position: relative;
+  padding: 20px 50px 20px 20px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.accordion-group-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-group-item summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgb(58 63 58);
+  border-bottom: 2px solid rgb(58 63 58);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.3s;
+}
+
+.accordion-group-item[open] summary::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+.accordion-group-item summary:hover {
+  background-color: var(--light-color);
+}
+
+.accordion-group-item summary h2 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: rgb(58 63 58);
+  margin: 0;
+  text-transform: none;
+}
+
+.accordion-group-item-body {
+  padding: 0 20px 20px;
+}
+
+.accordion-group-item-body::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.accordion-group-item-body p {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(58 63 58);
+  margin: 0 0 12px;
+}
+
+.accordion-group-item-body a:any-link {
+  color: var(--link-color);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Carousel: default = float left like a single image (used in accordion bodies) */
+.accordion-group-carousel {
+  position: relative;
+  float: left;
+  width: 301px;
+  margin: 0 15px 10px 0;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.accordion-group-carousel-track {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.4s ease;
+}
+
+.accordion-group-carousel-slide {
+  flex: 0 0 100%;
+  line-height: 0;
+}
+
+.accordion-group-carousel-slide img {
+  width: 301px;
+  height: 184px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Intro carousel (first item): full width, clears floated text */
+.accordion-group-intro .accordion-group-carousel {
+  float: none;
+  clear: both;
+  width: 100%;
+  margin: 0 0 15px;
+}
+
+.accordion-group-intro .accordion-group-carousel-slide img {
+  width: 100%;
+  height: 300px;
+}
+
+.accordion-group-carousel-nav {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.accordion-group-carousel-prev,
+.accordion-group-carousel-next {
+  pointer-events: auto;
+  width: 28px;
+  height: 28px;
+  margin: 0 6px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(0 0 0 / 50%);
+  cursor: pointer;
+  position: relative;
+}
+
+.accordion-group-carousel-prev::after,
+.accordion-group-carousel-next::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.accordion-group-carousel-prev::after {
+  transform: translate(-30%, -50%) rotate(135deg);
+}
+
+.accordion-group-carousel-next::after {
+  transform: translate(-70%, -50%) rotate(-45deg);
+}
+
+.accordion-group-carousel-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion-group-carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 50%);
+  cursor: pointer;
+}
+
+.accordion-group-carousel-dot[aria-current="true"] {
+  background-color: #fff;
+}
+
+@media (width >= 900px) {
+  .accordion-group-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 0;
+  }
+
+  .accordion-group-aside {
+    position: sticky;
+    top: 160px;
+    align-self: start;
+  }
+}
