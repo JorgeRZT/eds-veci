@@ -1,0 +1,40 @@
+{
+  "variantName": "table-calendar",
+  "baseBlock": "table",
+  "version": "1.0.0",
+  "created": "2026-06-15T10:50:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.viajeselcorteingles.es/cruceros/zonas/mediterraneo-occidental/",
+    "originPage": "cruise destination zone page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "grey",
+    "density": "compact",
+    "purpose": "pricing-matrix",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "header row (cruise lines) + data rows (month + per-line starting prices)",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "departure / availability pricing calendars",
+      "month-by-cruise-line price comparison matrices",
+      "any row-and-column starting-price comparison table"
+    ],
+    "notSuitableFor": [
+      "card-style content",
+      "narrative prose",
+      "single data points without comparison"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/cruceros/zonas/mediterraneo-occidental/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-15T10:50:00.000Z",
+    "usageNotes": "Renders the CALENDARIO DE SALIDAS departure pricing matrix (section 5): months as rows, cruise lines as columns, 'desde {price}' cells. Striped for readability."
+  }
+}

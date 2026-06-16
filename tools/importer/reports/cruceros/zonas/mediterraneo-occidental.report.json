@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.viajeselcorteingles.es/cruceros/zonas/mediterraneo-occidental/",
+  "path": "cruceros/zonas/mediterraneo-occidental",
+  "timestamp": "2026-06-16T09:29:49.795Z",
+  "title": "Cruceros por el Mediterráneo - Viajes El Corte Inglés",
+  "template": "cruise-zone-page",
+  "blocks": [
+    "hero-destination",
+    "cta-search",
+    "cards-cruise",
+    "cards-cruise",
+    "columns-intro",
+    "table-calendar",
+    "cards-travel",
+    "cards-travel",
+    "cards-links"
+  ]
+}

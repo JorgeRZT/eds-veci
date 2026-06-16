@@ -1,0 +1,151 @@
+/* cards-links — "EL CRUCERO QUE BUSCAS": portrait image cards in a carousel.
+   Four central cards fully visible; the carousel pages in blocks of 4 and the
+   left/right edges fade to white to hint there is more. */
+
+/* full-bleed: override the section's content max-width/margins so the carousel
+   spans the whole viewport width */
+main > .section > .cards-links-wrapper {
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
+.cards-links .cards-links-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.cards-links .cards-links-header h2 {
+  margin: 0 0 6px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgb(63 63 63);
+}
+
+.cards-links .cards-links-header p {
+  margin: 0;
+  font-size: var(--body-font-size-m);
+  color: rgb(107 107 107);
+}
+
+.cards-links .cards-links-carousel {
+  position: relative;
+}
+
+/* edge fades */
+.cards-links .cards-links-carousel::before,
+.cards-links .cards-links-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  /* veil the side space outside the 4 main cards (plus a little overlap) so the
+     peeking neighbours fade to white toward the edges */
+  width: max(60px, calc((100% - var(--content-width, 1200px)) / 2 + 40px));
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cards-links .cards-links-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, #fff, rgb(255 255 255 / 0%));
+}
+
+.cards-links .cards-links-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, #fff, rgb(255 255 255 / 0%));
+}
+
+.cards-links .cards-links-carousel.at-start::before { opacity: 0; }
+.cards-links .cards-links-carousel.at-end::after { opacity: 0; }
+
+.cards-links .cards-links-track {
+  list-style: none;
+  margin: 0;
+
+  /* full-bleed track: the 4 main cards keep the standard content width (and so
+     their original height); the leftover viewport space on each side is used to
+     reveal the neighbouring cards rather than widening the 4 main ones */
+  padding: 4px max(16px, calc((100% - var(--content-width, 1200px)) / 2));
+  scroll-padding-inline: max(16px, calc((100% - var(--content-width, 1200px)) / 2));
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((min(100%, var(--content-width, 1200px)) - 3 * 16px) / 4);
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.cards-links .cards-links-track::-webkit-scrollbar { display: none; }
+
+.cards-links .cards-links-track > li {
+  scroll-snap-align: start;
+  text-align: center;
+}
+
+.cards-links .cards-links-card-image {
+  line-height: 0;
+}
+
+.cards-links .cards-links-card-image img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.cards-links .cards-links-card-body {
+  padding: 12px 4px 0;
+}
+
+.cards-links .cards-links-card-body a:any-link {
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgb(22 25 22);
+  text-decoration: none;
+}
+
+.cards-links .cards-links-card-body a:hover {
+  color: var(--link-color);
+}
+
+/* navigation arrows */
+.cards-links .cards-links-arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(226 226 226);
+  border-radius: 50%;
+  background: #fff;
+  color: rgb(22 25 22);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 12%) 0 2px 6px;
+}
+
+.cards-links .cards-links-arrow-prev { left: -8px; }
+.cards-links .cards-links-arrow-next { right: -8px; }
+
+.cards-links .cards-links-arrow:disabled {
+  opacity: 0;
+  cursor: default;
+}
+
+@media (width >= 900px) {
+  .cards-links .cards-links-arrow { display: block; }
+}

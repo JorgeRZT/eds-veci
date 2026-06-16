@@ -1,0 +1,316 @@
+/* cards-cruise -- two card styles share this block:
+   - cruise product cards (TOP CRUCEROS): white card, ship image with the
+     cruise-line logo overlaid on the image bottom, "Crucero" label, route
+     title, ship name, duration, beige promo band, sailing date, big green price.
+   - destination cards (MÁS DESTINOS, the .zones-style li): square image with
+     the destination name + cruise count overlaid on top and price at the bottom.
+   Both live in a horizontal carousel that pages in blocks of 4. */
+
+/* carousel viewport + scrolling track */
+.cards-cruise .cards-cruise-carousel {
+  position: relative;
+}
+
+.cards-cruise .cards-cruise-track,
+.cards-cruise > ul {
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.cards-cruise .cards-cruise-track::-webkit-scrollbar {
+  display: none;
+}
+
+.cards-cruise .cards-cruise-track > li {
+  scroll-snap-align: start;
+}
+
+/* navigation arrows */
+.cards-cruise .cards-cruise-arrow {
+  position: absolute;
+  top: 38%;
+  z-index: 3;
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(226 226 226);
+  border-radius: 50%;
+  background: #fff;
+  color: rgb(22 25 22);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 12%) 0 2px 6px;
+}
+
+.cards-cruise .cards-cruise-arrow-prev { left: -8px; }
+.cards-cruise .cards-cruise-arrow-next { right: -8px; }
+
+.cards-cruise .cards-cruise-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* lead heading + subheading above the carousel */
+.cards-cruise > .cards-cruise-heading {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cards-cruise > .cards-cruise-heading h2 {
+  margin: 0 0 6px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgb(58 63 58);
+}
+
+.cards-cruise > .cards-cruise-heading p {
+  margin: 0;
+  font-size: var(--body-font-size-m);
+  color: rgb(58 63 58);
+}
+
+.cards-cruise > .cards-cruise-heading .cards-cruise-card-body:empty {
+  display: none;
+}
+
+/* Variant-specific overrides below intentionally re-target shared selectors;
+   their order is driven by content pattern, not specificity. */
+/* stylelint-disable no-descending-specificity */
+
+/* ===== product cruise card (has a ship name h4) ===== */
+.cards-cruise .cards-cruise-track > li:has(h4) {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid rgb(239 239 239);
+  border-radius: 4px;
+}
+
+.cards-cruise .cards-cruise-track > li:has(h4) .cards-cruise-card-image {
+  position: relative;
+  line-height: 0;
+  overflow: visible;
+}
+
+.cards-cruise .cards-cruise-card-image img:not(.cards-cruise-logo) {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-radius: 4px 4px 0 0;
+}
+
+/* cruise-line logo straddling the bottom edge of the image: half over the
+   photo, half over the white card body below it. */
+.cards-cruise .cards-cruise-card-image .cards-cruise-logo {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  z-index: 2;
+  width: auto;
+  height: 40px;
+  aspect-ratio: auto;
+  padding: 5px 10px;
+  background: #fff;
+  border: 1px solid rgb(239 239 239);
+  border-radius: 4px;
+  object-fit: contain;
+  box-shadow: rgb(0 0 0 / 8%) 0 1px 4px;
+}
+
+.cards-cruise .cards-cruise-track > li:has(h4) .cards-cruise-card-body {
+  display: flex;
+  flex: 1;
+}
+
+.cards-cruise .cards-cruise-track > li:has(h4) .cards-cruise-card-body a:any-link {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+
+  /* extra top space so the straddling logo doesn't overlap the label/title */
+  padding: 28px 18px 18px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cards-cruise .cards-cruise-label {
+  font-family: var(--heading-font-family);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgb(120 125 120);
+}
+
+.cards-cruise .cards-cruise-card-body h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  color: rgb(22 25 22);
+}
+
+.cards-cruise .cards-cruise-card-body h4 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  color: rgb(22 25 22);
+}
+
+.cards-cruise .cards-cruise-card-body p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: rgb(58 63 58);
+}
+
+/* beige promo band */
+.cards-cruise .cards-cruise-card-body p.cards-cruise-promo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 8px 0 0;
+  padding: 8px 12px;
+  background-color: #fdf3e3;
+  border-radius: 4px;
+}
+
+.cards-cruise .cards-cruise-card-body p.cards-cruise-promo span {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: rgb(58 63 58);
+}
+
+/* big green price at the bottom-right */
+.cards-cruise .cards-cruise-card-body p.cards-cruise-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 11px;
+  line-height: 1;
+  color: rgb(120 125 120);
+  text-align: right;
+}
+
+.cards-cruise .cards-cruise-card-body p.cards-cruise-price strong {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--link-color);
+}
+
+/* ===== destination overlay card (MÁS DESTINOS — no ship name) ===== */
+.cards-cruise .cards-cruise-track > li:not(:has(h4)):has(.cards-cruise-card-image) {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.cards-cruise .cards-cruise-track > li:not(:has(h4)) .cards-cruise-card-image {
+  border-radius: 6px;
+}
+
+.cards-cruise .cards-cruise-track > li:not(:has(h4)) .cards-cruise-card-image img {
+  aspect-ratio: 1 / 1;
+}
+
+/* body overlays the whole square image */
+.cards-cruise .cards-cruise-track > li:not(:has(h4)) .cards-cruise-card-body {
+  position: absolute;
+  inset: 0;
+}
+
+.cards-cruise .cards-cruise-track > li:not(:has(h4)) .cards-cruise-card-body a:any-link {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 16px;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(rgb(0 0 0 / 45%) 0%, rgb(0 0 0 / 0%) 30%, rgb(0 0 0 / 0%) 55%, rgb(0 0 0 / 65%) 100%);
+}
+
+.cards-cruise .cards-cruise-track > li:not(:has(h4)) h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+}
+
+/* cruise count sits right under the title (top group) */
+.cards-cruise .cards-cruise-track > li:not(:has(h4)) h3 + p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+}
+
+/* price pinned to the bottom (the decorator classes it cards-cruise-price) */
+.cards-cruise .cards-cruise-track > li:not(:has(h4)) p.price,
+.cards-cruise .cards-cruise-track > li:not(:has(h4)) p.cards-cruise-price {
+  align-items: center;
+  margin: auto 0 0;
+  padding: 0;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+}
+
+.cards-cruise .cards-cruise-track > li:not(:has(h4)) p.price strong,
+.cards-cruise .cards-cruise-track > li:not(:has(h4)) p.cards-cruise-price strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* tablet: ~2 cards in view */
+@media (width >= 600px) {
+  .cards-cruise .cards-cruise-track,
+  .cards-cruise > ul {
+    grid-auto-columns: calc((100% - 20px) / 2);
+  }
+}
+
+/* desktop: 4 cards in view, paged in blocks of 4 */
+@media (width >= 900px) {
+  .cards-cruise .cards-cruise-track,
+  .cards-cruise > ul {
+    grid-auto-columns: calc((100% - 3 * 20px) / 4);
+  }
+
+  .cards-cruise .cards-cruise-arrow {
+    display: block;
+  }
+}

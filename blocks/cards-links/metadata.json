@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-links",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-06-15T10:50:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.viajeselcorteingles.es/cruceros/zonas/mediterraneo-occidental/",
+    "originPage": "cruise destination zone page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "link-grid",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "text link only",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "text-only category link grids",
+      "cruise/trip selection link lists",
+      "footer-style navigational link columns within content"
+    ],
+    "notSuitableFor": [
+      "cards with images",
+      "priced product cards",
+      "cards needing descriptions or thumbnails"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/cruceros/zonas/mediterraneo-occidental/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-15T10:50:00.000Z",
+    "usageNotes": "Used for OTRAS SELECCIONES DE CRUCEROS (section 7), a multi-column grid of 21 text-only category links."
+  }
+}

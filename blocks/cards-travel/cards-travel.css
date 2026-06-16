@@ -1,109 +1,246 @@
-/* Block: cards-travel -- Travel destination cards with image + label overlay.
-   Source: section.mod-links-destination-x2 (grey bordered container, panoramic
-   images, bottom-left white uppercase label). */
+/* Block: cards-travel — two patterns on the cruise page:
+   - PORT cards (PUERTOS): portrait image carousel; "PUERTO" eyebrow + port name
+     overlaid on a darkened lower area of the image. Tight gaps.
+   - BLOG cards (NUESTRO BLOG): static 3-column grid; rounded square image,
+     title, publication date, a divider, excerpt, and a dark "Leer artículo"
+     button. */
 
-/* Grey bordered container around the whole section */
-.cards-travel-container {
-  background-color: var(--light-color);
-  border: 1px solid rgb(226 226 226);
-  padding: 20px 30px 30px;
-  margin: 40px auto !important;
-  max-width: 1200px;
+/* stylelint-disable no-descending-specificity */
+
+/* ===== shared: section heading lifted above the cards ===== */
+.cards-travel .cards-travel-heading {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.cards-travel-container > div {
-  padding: 0;
+.cards-travel .cards-travel-heading h2 {
   margin: 0;
-}
-
-/* Section heading */
-main .section.cards-travel-container h2 {
-  font-size: 20px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
   font-weight: 400;
-  text-transform: none;
-  text-align: left;
-  color: rgb(58 63 58);
-  margin: 0 0 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgb(63 63 63);
 }
 
-.cards-travel > ul {
+.cards-travel .cards-travel-heading p {
+  margin: 8px 0 0;
+  font-size: var(--body-font-size-m);
+  color: rgb(58 63 58);
+}
+
+/* ===== PORT carousel ===== */
+.cards-travel .cards-travel-carousel {
+  position: relative;
+}
+
+.cards-travel .cards-travel-track {
   list-style: none;
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  padding: 4px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 3 * 10px) / 4);
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
-.cards-travel > ul > li {
+.cards-travel .cards-travel-track::-webkit-scrollbar { display: none; }
+
+.cards-travel .cards-travel-track > li {
   position: relative;
+  scroll-snap-align: start;
+  border-radius: 4px;
   overflow: hidden;
 }
 
-/* Subtle dark gradient at the bottom for label legibility */
-.cards-travel > ul > li::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50%;
-  background: linear-gradient(rgb(0 0 0 / 0%), rgb(0 0 0 / 55%));
-  z-index: 1;
-  pointer-events: none;
-}
-
-.cards-travel .cards-travel-card-image {
+.cards-travel .cards-travel-track .cards-travel-card-image {
   line-height: 0;
 }
 
-.cards-travel > ul > li img {
+.cards-travel .cards-travel-track .cards-travel-card-image img {
   width: 100%;
-  aspect-ratio: 621 / 167;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
 }
 
-/* Label overlay: bottom-left */
-.cards-travel .cards-travel-card-body {
+/* dark gradient over the lower part for text legibility */
+.cards-travel .cards-travel-track > li::after {
+  content: "";
   position: absolute;
-  bottom: 16px;
+  inset: 0;
+  background: linear-gradient(rgb(0 0 0 / 0%) 45%, rgb(0 0 0 / 75%) 100%);
+  pointer-events: none;
+}
+
+/* body overlaid at the bottom */
+.cards-travel .cards-travel-track .cards-travel-card-body {
+  position: absolute;
   left: 0;
   right: 0;
-  padding: 0 20px;
-  z-index: 2;
-  margin: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 16px;
+  text-align: center;
 }
 
-.cards-travel .cards-travel-card-body p {
-  margin: 0;
-  font-size: 20px;
-  font-family: var(--body-font-family);
-  font-weight: 500;
-  line-height: 26px;
+.cards-travel .cards-travel-track .cards-travel-eyebrow {
+  margin: 0 0 2px;
+  font-family: var(--heading-font-family);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: #fff;
 }
 
-.cards-travel .cards-travel-card-body a:any-link {
-  color: #fff;
-  text-decoration: none;
-  font-size: 20px;
+.cards-travel .cards-travel-track .cards-travel-card-body h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
   font-weight: 500;
+  line-height: 1.2;
   text-transform: uppercase;
+  color: #fff;
 }
 
-.cards-travel .cards-travel-card-body a:hover {
-  text-decoration: underline;
-  color: #fff;
+/* per-card port links hidden (the whole card links via the first one) */
+.cards-travel .cards-travel-track .cards-travel-card-body a {
+  display: none;
+}
+
+/* ===== PORT navigation arrows ===== */
+.cards-travel .cards-travel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(226 226 226);
+  border-radius: 50%;
+  background: #fff;
+  color: rgb(22 25 22);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 12%) 0 2px 6px;
+}
+
+.cards-travel .cards-travel-arrow-prev { left: -8px; }
+.cards-travel .cards-travel-arrow-next { right: -8px; }
+
+.cards-travel .cards-travel-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 @media (width >= 900px) {
-  .cards-travel > ul {
-    flex-direction: row;
-  }
+  .cards-travel .cards-travel-arrow { display: block; }
+}
 
-  .cards-travel > ul > li {
-    flex: 1;
+/* ===== BLOG 3-column grid ===== */
+.cards-travel ul.cards-travel-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (width >= 900px) {
+  .cards-travel ul.cards-travel-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.cards-travel ul.cards-travel-grid > li {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-travel ul.cards-travel-grid .cards-travel-card-image {
+  line-height: 0;
+}
+
+.cards-travel ul.cards-travel-grid .cards-travel-card-image img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.cards-travel ul.cards-travel-grid .cards-travel-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px 4px 0;
+}
+
+.cards-travel ul.cards-travel-grid h3 {
+  margin: 0 0 6px;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: rgb(22 25 22);
+}
+
+.cards-travel ul.cards-travel-grid .cards-travel-date {
+  margin: 0 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e3e3e3;
+  font-size: var(--body-font-size-xs);
+  color: rgb(120 125 120);
+}
+
+.cards-travel ul.cards-travel-grid .cards-travel-card-body p:not(.cards-travel-date, :has(a)) {
+  margin: 0 0 16px;
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+  color: rgb(63 63 63);
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* button-container paragraph pinned to the bottom and centred so the
+   "Leer artículo" buttons line up across the equal-height cards */
+.cards-travel ul.cards-travel-grid .cards-travel-card-body p:has(a) {
+  margin: auto 0 0;
+  text-align: center;
+}
+
+.cards-travel ul.cards-travel-grid .cards-travel-card-body a:any-link {
+  display: inline-block;
+  background-color: var(--dark-color);
+  color: #fff;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 4px;
+}
+
+.cards-travel ul.cards-travel-grid .cards-travel-card-body a:hover {
+  background-color: #000;
+}
+
+/* ===== legacy egipto cards (li with image, no overlay markers) ===== */
+.cards-travel > ul:not(.cards-travel-track, .cards-travel-grid) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
