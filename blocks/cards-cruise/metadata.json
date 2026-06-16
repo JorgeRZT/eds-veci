@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-cruise",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-06-15T10:50:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.viajeselcorteingles.es/cruceros/zonas/mediterraneo-occidental/",
+    "originPage": "cruise destination zone page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "product-price-cards",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + title + subtitle + meta + price + link",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "cruise/trip product cards with starting price",
+      "destination cards with cruise count and price",
+      "any priced travel product grid (image + title + meta + price + CTA)"
+    ],
+    "notSuitableFor": [
+      "text-only link listings",
+      "icon-based feature highlights",
+      "image+label cards without price"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/cruceros/zonas/mediterraneo-occidental/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-15T10:50:00.000Z",
+    "usageNotes": "Used twice on this page: TOP CRUCEROS available-cruise cards (section 3) and MÁS DESTINOS priced destination cards (section 8)."
+  }
+}

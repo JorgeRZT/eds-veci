@@ -1,0 +1,124 @@
+/*
+ * Table Calendar block
+ * Departure pricing matrix: cruise lines are rows, months are columns up to
+ * October (no horizontal scroll). Collapsed it shows only the first few
+ * cruise-line rows; a "Ver más"/"Ver menos" toggle expands the rest
+ * vertically. White background, Asap typography, bold green prices.
+ */
+
+.table-calendar.block {
+  width: 100%;
+  background-color: #fff;
+}
+
+.table-calendar.block .table-calendar-heading {
+  margin: 0 0 20px;
+  text-align: center;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgb(63 63 63);
+}
+
+.table-calendar.block .table-calendar-viewport {
+  position: relative;
+}
+
+/* collapsed state: hide cruise-line rows beyond the first few */
+.table-calendar.block .table-calendar-collapsed tbody tr.table-calendar-extra {
+  display: none;
+}
+
+/* "Ver más" / "Ver menos" toggle */
+.table-calendar.block .table-calendar-toggle {
+  display: block;
+  margin: 16px auto 0;
+  padding: 10px 28px;
+  border: 1px solid rgb(22 25 22);
+  border-radius: 4px;
+  background: #fff;
+  color: rgb(22 25 22);
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.table-calendar.block .table-calendar-toggle:hover {
+  background: rgb(22 25 22);
+  color: #fff;
+}
+
+.table-calendar.block table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  color: var(--text-color);
+  table-layout: fixed;
+}
+
+/* Month columns share the remaining width equally (no horizontal scroll). */
+.table-calendar.block table th,
+.table-calendar.block table td {
+  padding: 0.7em 0.5em;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Header row = months */
+.table-calendar.block table thead tr {
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.table-calendar.block table thead th {
+  font-weight: 400;
+  font-family: var(--heading-font-family);
+  color: #000;
+  font-size: var(--body-font-size-m);
+}
+
+/* Body rows = cruise lines, thin separators */
+.table-calendar.block table tbody tr {
+  border-bottom: 1px solid #e3e3e3;
+}
+
+/* First column = cruise line names: left aligned, dark, wider */
+.table-calendar.block table th:first-child,
+.table-calendar.block table td:first-child {
+  width: 22%;
+  text-align: left;
+  font-weight: 600;
+  font-family: var(--heading-font-family);
+  color: #000;
+  background-color: #fff;
+  white-space: normal;
+}
+
+/* even rows get a subtle stripe — keep the sticky cell opaque to match */
+.table-calendar.block table tbody tr:nth-child(even),
+.table-calendar.block table tbody tr:nth-child(even) td:first-child {
+  background-color: var(--light-color);
+}
+
+/* Price cells (months) shown in the source green, larger */
+/* stylelint-disable no-descending-specificity */
+.table-calendar.block table tbody td:not(:first-child) {
+  color: rgb(53 116 66);
+  font-weight: 400;
+  font-size: var(--body-font-size-m);
+}
+
+.table-calendar.block table tbody td:not(:first-child):empty {
+  color: inherit;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* Reset inherited paragraph spacing inside cells */
+.table-calendar.block table th p,
+.table-calendar.block table td p {
+  margin: 0;
+}

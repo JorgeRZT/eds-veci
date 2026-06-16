@@ -1,0 +1,40 @@
+{
+  "variantName": "cta-search",
+  "baseBlock": "cta",
+  "version": "1.0.0",
+  "created": "2026-06-15T10:50:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.viajeselcorteingles.es/cruceros/zonas/mediterraneo-occidental/",
+    "originPage": "cruise destination zone page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "search-cta",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + text + button",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "static call-to-action panels linking to a booking/search engine",
+      "non-sticky inline CTA banners with heading + supporting text + button",
+      "result-count promotional bars driving users to a searcher"
+    ],
+    "notSuitableFor": [
+      "sticky top-of-page CTA bars (use cta-block)",
+      "interactive client-side search/filter widgets requiring backend",
+      "CTAs with background imagery"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/cruceros/zonas/mediterraneo-occidental/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-15T10:50:00.000Z",
+    "usageNotes": "Represents the source page's interactive cruise searcher (section 2) as an authorable CTA panel linking to the booking-engine searcher; the live JS filter widget is not reproducible as a static EDS block."
+  }
+}

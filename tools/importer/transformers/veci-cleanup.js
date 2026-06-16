@@ -17,12 +17,40 @@ export default function transform(hookName, element, payload) {
     // Remove empty inspirational claim paragraph
     // Found in cleaned.html: <p class="inspirational-claim"></p>
     WebImporter.DOMUtils.remove(element, ['.inspirational-claim']);
+
+    // --- Strip global chrome that is inherited from the EDS template ---
+    // The scraped DOM is the whole <body>: site header (logo/nav/login/contact),
+    // footer, the OneTrust cookie modal, tracking pixels, the Kampyle "Tu
+    // opinión" widget, the back-to-top button, auth iframes and stray scripts.
+    // None of this belongs in the authored page document — header and footer are
+    // provided by the project's own blocks, and the rest is third-party chrome.
+    // Remove it before parsing so only the page's real content survives.
+    WebImporter.DOMUtils.remove(element, [
+      'header',
+      'footer',
+      'nav',
+      '#onetrust-consent-sdk',
+      '#onetrust-banner-sdk',
+      '.onetrust-pc-dark-filter',
+      '[id^="batBeacon"]',
+      '[id^="universal_pixel"]',
+      '#kampyleButtonContainer',
+      '#nebula_div_btn',
+      '#BT-go-to-top',
+      'button.go-to-top',
+      '#ui-oidc',
+      'iframe',
+      'script',
+      'style',
+      'noscript',
+    ]);
   }
 
   if (hookName === TransformHook.afterTransform) {
     // Remove breadcrumb navigation
-    // Found in cleaned.html: <div id="main-top"><ul id="breadcrumb">
-    WebImporter.DOMUtils.remove(element, ['#main-top', '#breadcrumb']);
+    // Found in destination-page cleaned.html: <div id="main-top"><ul id="breadcrumb">
+    // Found in cruise-zone-page cleaned.html: <nav class="breadcrumb" aria-label="breadcrumb"> (inside section.hero)
+    WebImporter.DOMUtils.remove(element, ['#main-top', '#breadcrumb', 'nav.breadcrumb']);
 
     // Remove carousel/slider UI controls (not authorable)
     // Found in cleaned.html: <div class="bx-controls bx-has-controls-direction">
