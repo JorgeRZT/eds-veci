@@ -105,6 +105,117 @@
           "defaultContent": ["section.mod-links h2"]
         }
       ]
+    },
+    {
+      "name": "cruise-zone-page",
+      "urls": [
+        "https://www.viajeselcorteingles.es/cruceros/zonas/mediterraneo-occidental/"
+      ],
+      "description": "Cruise destination zone page showcasing a sailing region with hero imagery, available cruises, highlights, ports of call, and booking options",
+      "blocks": [
+        {
+          "name": "hero-destination",
+          "instances": ["section[data-name=\"MainBanner\"]"]
+        },
+        {
+          "name": "cta-search",
+          "instances": ["main > section:has([role=\"search\"])"]
+        },
+        {
+          "name": "cards-cruise",
+          "instances": ["section[data-name=\"TabsProductCarousel\"]", "section[data-name=\"Zones\"]"]
+        },
+        {
+          "name": "columns-intro",
+          "instances": ["section[data-name=\"Inspirational\"]"]
+        },
+        {
+          "name": "table-calendar",
+          "instances": ["section[data-name=\"PriceCalendar\"]"]
+        },
+        {
+          "name": "cards-travel",
+          "instances": ["section[data-name=\"Locations\"]", "section[data-name=\"Blogs\"]"]
+        },
+        {
+          "name": "cards-links",
+          "instances": ["section[data-name=\"CruiseNiches\"]"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-hero",
+          "name": "Hero",
+          "selector": "section[data-name=\"MainBanner\"]",
+          "style": null,
+          "blocks": ["hero-destination"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-searcher",
+          "name": "Cruise Searcher CTA",
+          "selector": "main > section:has([role=\"search\"])",
+          "style": "light",
+          "blocks": ["cta-search"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-top-cruceros",
+          "name": "Top Cruises",
+          "selector": "section[data-name=\"TabsProductCarousel\"]",
+          "style": null,
+          "blocks": ["cards-cruise"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-descubre",
+          "name": "Editorial Intro",
+          "selector": "section[data-name=\"Inspirational\"]",
+          "style": "light",
+          "blocks": ["columns-intro"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-calendario",
+          "name": "Departure Calendar",
+          "selector": "section[data-name=\"PriceCalendar\"]",
+          "style": "grey",
+          "blocks": ["table-calendar"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-puertos",
+          "name": "Ports",
+          "selector": "section[data-name=\"Locations\"]",
+          "style": null,
+          "blocks": ["cards-travel"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-otras-selecciones",
+          "name": "Other Selections",
+          "selector": "section[data-name=\"CruiseNiches\"]",
+          "style": null,
+          "blocks": ["cards-links"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-mas-destinos",
+          "name": "More Destinations",
+          "selector": "section[data-name=\"Zones\"]",
+          "style": "grey",
+          "blocks": ["cards-cruise"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-blog",
+          "name": "Blog",
+          "selector": "section[data-name=\"Blogs\"]",
+          "style": null,
+          "blocks": ["cards-travel"],
+          "defaultContent": []
+        }
+      ]
     }
   ]
 }

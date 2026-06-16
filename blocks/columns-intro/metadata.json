@@ -1,0 +1,40 @@
+{
+  "variantName": "columns-intro",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-06-15T10:50:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.viajeselcorteingles.es/cruceros/zonas/mediterraneo-occidental/",
+    "originPage": "cruise destination zone page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "editorial-intro",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + paragraphs (optional image column)",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "editorial intro / SEO prose blocks (heading + multiple paragraphs)",
+      "rich-text content that must be a block (no free default text)",
+      "optional side-by-side text + image when a second column is added"
+    ],
+    "notSuitableFor": [
+      "repeating card grids",
+      "interactive components",
+      "data tables"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/cruceros/zonas/mediterraneo-occidental/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-15T10:50:00.000Z",
+    "usageNotes": "Wraps the 'Descubre el Mediterráneo' heading + 4 editorial paragraphs (section 4) as an authorable text block per the all-content-as-blocks constraint."
+  }
+}
